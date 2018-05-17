@@ -1,0 +1,54 @@
+/*
+  Possible Animations:
+  enter
+  exit
+  appear Must set transitionAppear={true} on animation component
+
+
+Tips
+
+  -> the transform:translateX(-120%) will bring hide the info left
+  by bringing it to 0 that will show it. transition will make that smooth.
+  -> the max-height from 0 to 60px in active will incrrease the size of the li.
+  -> the padding will center it nicely
+  -> for the count-exit the position absolute and left 0 bottom 0 is needed to
+  overlap the animation of the transition of numbers
+
+*/
+
+.order-enter
+  transform: translateX(-120%)
+  transition 0.5s
+  max-height: 0
+  padding 0 !important
+  &.order-enter-active
+    max-height: 60px
+    transform: translateX(0)
+    padding 2rem 0 !important
+
+.order-exit
+  transform: translateX(0)
+  transition 0.5s
+  &.order-exit-active
+    transform: translateX(120%)
+    padding 0
+
+.count-enter
+  background: red
+  transition 0.5s
+  transform: translateY(100%)
+  &.count-enter-active
+    background: yellow
+    transform: translateY(0)
+
+.count-exit
+  background: black
+  transform: translateY(0)
+  transition 0.5s
+  position absolute
+  left 0
+  bottom 0
+  &.count-exit-active
+    background: green
+    transform: translateY(-100%)
+
